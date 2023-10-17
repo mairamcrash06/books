@@ -1,20 +1,18 @@
-function filterBooks(...books) {
-    let booksWithU = [];
-    let otherBooks = [];
+function createObjectFromArray(arr) {
+    const obj = {};
 
-    for (let i = 0; i < books.length; i++) {
-        if (books[i].includes('У') || books[i].includes('у')) {
-            booksWithU.push(books[i]);
-        } else {
-            otherBooks.push(books[i]);
-        }
+    for (let i = 0; i < arr.length; i += 2) {
+        const key = arr[i];
+        const value = arr[i + 1];
+        obj[key] = value;
     }
-    
-    console.log('Книги с буквой "У":', booksWithU);
-    console.log('Остальные книги:', otherBooks);
+
+    return obj;
 }
 
-filterBooks('Мастер и Маргарита', 'Улисс', '1984', 'Преступление и наказание', 'Урфин Джюс и его деревянные солдаты');
+const arr = ["name", "John", "lastname", "Black", "age", "23"];
+const resultObject = createObjectFromArray(arr);
+console.log(resultObject);
 
 //
 function avg(...nums) {
@@ -25,3 +23,13 @@ function avg(...nums) {
     console.log(numSum / nums.length);
 }
 avg(1, 2, 3, 4, 5)
+
+//
+
+function getDataType(value) {
+    return typeof value;
+}
+
+console.log(getDataType(false)); 
+console.log(getDataType('hello world!')); 
+console.log(getDataType(42)); 
